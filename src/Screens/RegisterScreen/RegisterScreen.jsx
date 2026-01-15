@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router'
 import useForm from '../../hooks/useForm'
-import { register } from '../../services/authService'
+import { register } from '../../services/authservice'
 import useRequest from '../../hooks/useRequest'
 import useRegister from '../../hooks/useRegister'
 

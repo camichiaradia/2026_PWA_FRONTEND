@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { Link, useNavigate } from 'react-router'
 import useForm from '../../hooks/useForm'
 import useRequest from '../../hooks/useRequest'
-import { login } from '../../services/authService'
+import { login } from '../../services/authservice'
 import useLogin from '../../hooks/useLogin'
 
 const LoginScreen = () => {
