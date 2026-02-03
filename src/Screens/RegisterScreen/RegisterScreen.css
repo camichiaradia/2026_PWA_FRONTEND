@@ -1,0 +1,59 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+/* ---------- INICIA ACÁ ---------- */
+/* RESPONSIVE Mobile */
+.hero_register {
+    font-family: 'Slack-Larsseit', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 800px;
+    margin: 10px auto;
+    padding: 20px;
+    color: #1d1c1d;
+    text-align: center;
+}
+
+.header_logo .logo_slack {
+    height: 90px;
+    margin-bottom: 20px;
+}
+
+.hero_register form {
+    width: 100%;
+    max-width: 400px;
+}
+
+.hero_register h1 {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.75px;
+    margin-bottom: 20px;
+}
+
+.hero_register input {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0 20px 0;
+    border: 1px solid #868686;
+    border-radius: 10px;
+    font-size: 18px;
+    box-sizing: border-box;
+}
+
+.hero_register input:focus {
+    outline: none;
+    border-color: #1264a3;
+    box-shadow: 0 0 0 1px #1264a3, 0 0 0 5px rgba(29, 155, 209, 0.3);
+}
+
+.hero_register label {
+    display: block;
+    text-align: left;
+    font-weight: bold;
+    font-size: 15px;
+}

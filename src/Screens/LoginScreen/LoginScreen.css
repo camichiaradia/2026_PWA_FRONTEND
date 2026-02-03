@@ -1,0 +1,88 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+/* ---------- INICIA ACÁ ---------- */
+/* RESPONSIVE Mobile */
+.hero_login {
+    font-family: 'Slack-Larsseit', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 800px;
+    margin: 10px auto;
+    padding: 20px;
+    color: #1d1c1d;
+    text-align: center;
+}
+
+.header_logo .logo_slack {
+    height: 90px;
+    margin-bottom: 20px;
+}
+
+.hero_login h1 {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.75px;
+    margin-bottom: 10px;
+}
+
+.hero_login p {
+    font-size: 18px;
+    color: #454545;
+    margin-bottom: 20px;
+}
+
+.hero_login form {
+    width: 100%;
+    max-width: 400px;
+}
+
+.hero_login input {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0 20px 0;
+    border: 1px solid #868686;
+    border-radius: 10px;
+    font-size: 18px;
+    box-sizing: border-box;
+}
+
+.hero_login input:focus {
+    outline: none;
+    border-color: #1264a3;
+    box-shadow: 0 0 0 1px #1264a3, 0 0 0 5px rgba(29, 155, 209, 0.3);
+}
+
+.hero_login label {
+    display: block;
+    text-align: left;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+button[type="submit"] {
+    width: 100%;
+    background-color: #611f69;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 200ms ease;
+    margin-bottom: 15px;
+}
+
+button[type="submit"]:hover {
+    background-color: #4a154b;
+}
+
+button[type="submit"]:disabled {
+    background-color: #dddddd;
+    cursor: not-allowed;
+}

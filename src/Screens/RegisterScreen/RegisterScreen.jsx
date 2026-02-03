@@ -4,6 +4,7 @@ import useForm from '../../hooks/useForm'
 import { register } from '../../services/authservice'
 import useRequest from '../../hooks/useRequest'
 import useRegister from '../../hooks/useRegister'
+import "../RegisterScreen/RegisterScreen.css"
 
 const RegisterScreen = () => {
     const {
@@ -16,41 +17,48 @@ const RegisterScreen = () => {
     } = useRegister()
     
     return (
-        <div>
+        <div className="hero_register">
+            <header className='header'>
+                <div className="header_logo">
+                    <img className='logo_slack' src='Slack_logo.png' alt='logo_Slack'>
+                    </img>
+                </div> 
+            </header>
+
             <h1>Registrate en la aplicacion</h1>
             <form onSubmit={onSubmitForm}>
                 <div>
-                    <label htmlFor="username">Nombre de usuario:</label>
                     <input
                         type="text"
                         id="username"
                         name="username"
                         value={form_state.username}
                         onChange={onChangeFieldValue}
+                        placeholder="Nombre de usuario"
                     />
                 </div>
                 <div>
-                    <label htmlFor="password">Contraseña:</label>
                     <input
                         type="password"
                         id="password"
                         name="password"
                         value={form_state.password}
                         onChange={onChangeFieldValue}
+                        placeholder="Contraseña"
                     />
                 </div>
                 <div>
-                    <label htmlFor="email">Email:</label>
                     <input
                         type="email"
                         id="email"
                         name="email"
                         value={form_state.email}
                         onChange={onChangeFieldValue}
+                        placeholder="nombre@work-email.com" 
                     />
                 </div>
                 {
-                    error && <span style={{ color: 'red' }}>{error.message}</span>
+                    error && <span style={{ color: '#e01e5a', marginBottom: '10px' }}>{error.message}</span>
                 }
                 {
                     response

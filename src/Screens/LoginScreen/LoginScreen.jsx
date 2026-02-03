@@ -4,6 +4,8 @@ import useForm from '../../hooks/useForm'
 import useRequest from '../../hooks/useRequest'
 import { login } from '../../services/authservice'
 import useLogin from '../../hooks/useLogin'
+import "../LoginScreen/LoginScreen.css"
+
 
 const LoginScreen = () => {
     const {
@@ -16,19 +18,36 @@ const LoginScreen = () => {
     } = useLogin()
 
     return (
-        <div>
-            <h1>Inicia sesion</h1>
+        <div className="hero_login">
+            <header className='header'>
+                <div className="header_logo">
+                    <img className='logo_slack' src='Slack_logo.png' alt='logo_Slack'>
+                    </img>
+                </div> 
+            </header>
+            <h1>Primero, introduce tu correo electrónico</h1>
+            <p>Te sugerimos que uses la <strong>dirección de correo electrónico que usas en el trabajo.</strong></p>
             <form onSubmit={onSubmitForm}>
                 <div>
-                    <label htmlFor="email">Email:</label>
-                    <input type="email" id="email" name="email" onChange={onChangeFieldValue} value={form_state.email} />
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email"
+                        placeholder="nombre@work-email.com" 
+                        onChange={onChangeFieldValue} 
+                        value={form_state.email} />
                 </div>
                 <div>
-                    <label htmlFor="password">Contraseña:</label>
-                    <input type="password" id="password" name="password" onChange={onChangeFieldValue} value={form_state.password} />
+                    <input 
+                        type="password" 
+                        id="password" 
+                        name="password" 
+                        onChange={onChangeFieldValue} 
+                        placeholder="Contraseña"
+                        value={form_state.password} />
                 </div>
                 {
-                    error && <span style={{ color: 'red' }}>{error.message}</span>
+                    error && <span style={{ color: '#e01e5a', marginBottom: '10px' }}>{error.message}</span>
                 }
                 {
                     response
