@@ -1,0 +1,299 @@
+.workspace-detail-container {
+    display: flex;
+    height: 100vh;
+    /* Ocupa toda la altura de la ventana */
+    font-family: 'Slack-Larsseit', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #1d1c1d;
+    background-color: #f8f8f8;
+    /* Fondo general de la app */
+}
+
+/* --- Barra Lateral (Sidebar) --- */
+.sidebar {
+    font-family: 'Slack-Larsseit', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    width: 260px;
+    background-color: #360a36;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #5a1d5a;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-header {
+    padding: 20px;
+    border-bottom: 1px solid #5a1d5a;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.sidebar-header h2 {
+    font-size: 20px;
+    font-weight: 900;
+    margin: 0;
+}
+
+.user-status {
+    font-size: 13px;
+    color: #b0b0b0;
+}
+
+.channels-nav {
+    flex-grow: 1;
+    /* Ocupa el espacio restante */
+    padding: 20px 0;
+}
+
+.channels-nav h3 {
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #a0a0a0;
+    margin: 0 20px 10px;
+}
+
+.channels-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.channels-nav li {
+    padding: 8px 20px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: background-color 0.2s ease;
+}
+
+.channels-nav li:hover {
+    background-color: #4a154b;
+    /* Un púrpura ligeramente más claro */
+}
+
+.channels-nav li.active {
+    background-color: #1d9bd1;
+    /* Color de selección de Slack (azul) */
+    color: white;
+    font-weight: bold;
+}
+
+.create-channel-btn {
+    background-color: #611f69;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    margin: 20px;
+    width: calc(100% - 40px);
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 700;
+    transition: background-color 0.2s ease;
+}
+
+.create-channel-btn:hover {
+    background-color: #4a154b;
+}
+
+/* --- Área Principal del Chat --- */
+.chat-area {
+    flex-grow: 1;
+    /* Ocupa todo el espacio horizontal restante */
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+}
+
+.chat-header {
+    padding: 15px 20px;
+    border-bottom: 1px solid #e8e8e8;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
+    z-index: 10;
+    /* Para que quede por encima de los mensajes */
+}
+
+.chat-header h2 {
+    font-size: 18px;
+    font-weight: 900;
+    margin: 0;
+}
+
+.chat-header p {
+    font-size: 13px;
+    color: #616061;
+    margin: 0;
+}
+
+.message-list {
+    flex-grow: 1;
+    /* Ocupa el espacio restante para mensajes */
+    padding: 20px;
+    overflow-y: auto;
+    /* Scroll si hay muchos mensajes */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.message-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 5px 0;
+}
+
+.message-avatar {
+    width: 36px;
+    height: 36px;
+    background-color: #e01e5a;
+    /* Color de avatar aleatorio/inicial */
+    color: white;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 14px;
+    flex-shrink: 0;
+    /* Evita que el avatar se encoja */
+}
+
+.message-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.message-user {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.message-timestamp {
+    font-size: 12px;
+    color: #929292;
+    margin-left: 5px;
+}
+
+.message-text {
+    margin: 5px 0 0;
+    font-size: 15px;
+    line-height: 1.4;
+}
+
+.empty-chat {
+    text-align: center;
+    color: #929292;
+    font-style: italic;
+    margin-top: 50px;
+}
+
+.chat-input-area {
+    padding: 15px 20px;
+    border-top: 1px solid #e8e8e8;
+    background-color: #ffffff;
+    box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.05);
+}
+
+.chat-input-area form {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.chat-input-area input {
+    flex-grow: 1;
+    padding: 10px 15px;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    font-size: 15px;
+    width: 100%;
+}
+
+.chat-input-area input:focus {
+    outline: none;
+    border-color: #1264a3;
+    box-shadow: 0 0 0 1px #1264a3, 0 0 0 3px rgba(29, 155, 209, 0.2);
+}
+
+.chat-input-area button {
+    background-color: #007a5a;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 15px;
+    transition: background-color 0.2s ease;
+    width: 10%;
+    margin-bottom: 0px;
+}
+
+.chat-input-area button:hover {
+    background-color: #148567;
+}
+
+.chat-input-area button:disabled {
+    background-color: #dddddd;
+    cursor: not-allowed;
+}
+
+
+/* --- Estados de carga y error --- */
+.workspace-detail-loading,
+.workspace-detail-error {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-size: 20px;
+    color: #616061;
+    text-align: center;
+}
+
+.loader {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #360a36;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.workspace-detail-error h1 {
+    color: #e01e5a;
+    margin-bottom: 10px;
+}
+
+.workspace-detail-error p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.workspace-detail-error a {
+    color: #1264a3;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.workspace-detail-error a:hover {
+    text-decoration: underline;
+}

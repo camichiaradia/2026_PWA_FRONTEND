@@ -1,0 +1,150 @@
+.create-workspace-container {
+    font-family: 'Slack-Larsseit', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 800px;
+    margin: 10px auto;
+    padding: 20px;
+    color: #1d1c1d;
+    text-align: center;
+}
+
+.create-workspace-box {
+    width: 100%;
+    max-width: 600px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.create-workspace-header {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.header_logo .logo_slack {
+    height: 90px;
+    margin-bottom: 20px;
+}
+
+.create-workspace-header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.75px;
+    margin-bottom: 10px;
+}
+
+.create-workspace-header p {
+    font-size: 18px;
+    color: #454545;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    position: relative;
+    padding: 20px 24px;
+    margin: 0;
+    font-size: 15px;
+    border-bottom: 1px solid var(--border-color);
+    background-color: var(--slack-bg);
+    border-radius: 10px 10px 0 0;
+}
+
+.form-label {
+    display: block;
+    font-weight: 700;
+    font-size: 15px;
+    color: #1d1c1d;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.form-input,
+.form-textarea {
+    font-family: 'Slack-Larsseit', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    line-height: 1.33333333;
+    border-radius: 10px;
+    border: 1px solid #868686;
+    transition: box-shadow 70ms ease-out, border-color 70ms ease-out;
+    box-sizing: border-box;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(29, 155, 209, 0.3);
+    border-color: #1264a3;
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.char-counter {
+    text-align: right;
+    font-size: 13px;
+    color: #616061;
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+.error-message {
+    color: #e01e5a;
+    font-size: 14px;
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.error-message::before {
+    content: "⚠️";
+    margin-right: 5px;
+    font-size: 12px;
+}
+
+.form-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 30px;
+}
+
+.btn-primary {
+    background-color: #007a5a;
+    color: white;
+    font-weight: 700;
+    font-size: 18px;
+    border: none;
+    border-radius: 4px;
+    padding: 12px 24px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    width: 100%;
+}
+
+.btn-primary:hover {
+    background-color: #148567;
+}
+
+.btn-primary:active {
+    background-color: #007a5a;
+}
+
+.btn-back {
+    color: #1d1c1d;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 15px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.btn-back:hover {
+    text-decoration: underline;
+    color: #1264a3;
+}

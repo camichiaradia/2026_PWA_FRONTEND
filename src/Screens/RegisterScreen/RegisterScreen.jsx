@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router'
+import { Link } from 'react-router-dom'
 import useForm from '../../hooks/useForm'
 import { register } from '../../services/authservice'
 import useRequest from '../../hooks/useRequest'
@@ -15,14 +15,14 @@ const RegisterScreen = () => {
         error,
         response
     } = useRegister()
-    
+
     return (
         <div className="hero_register">
             <header className='header'>
                 <div className="header_logo">
                     <img className='logo_slack' src='Slack_logo.png' alt='logo_Slack'>
                     </img>
-                </div> 
+                </div>
             </header>
 
             <h1>Registrate en la aplicacion</h1>
@@ -54,7 +54,7 @@ const RegisterScreen = () => {
                         name="email"
                         value={form_state.email}
                         onChange={onChangeFieldValue}
-                        placeholder="nombre@work-email.com" 
+                        placeholder="nombre@work-email.com"
                     />
                 </div>
                 {

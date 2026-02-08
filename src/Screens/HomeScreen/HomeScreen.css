@@ -1,0 +1,163 @@
+:root {
+    --slack-purple: #4a154b;
+    --slack-bg: #f8f8f8;
+    --text-main: #1d1c1d;
+    --text-muted: #616061;
+    --border-color: #ebebeb;
+}
+
+body {
+    margin: 0;
+    background-color: white;
+    font-family: "Slack-Lato", "Helvetica Neue", Helvetica, "Segoe UI", Tahoma, Arial, sans-serif;
+    color: var(--text-main);
+}
+
+.home-container {
+    max-width: 800px;
+    margin: 10px auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.home-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.header_logo .logo_slack {
+    height: 90px;
+    margin-bottom: 20px;
+}
+
+.hero_login h1 {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.75px;
+    margin-bottom: 10px;
+}
+
+.hero_login p {
+    font-size: 18px;
+    color: #454545;
+    margin-bottom: 20px;
+}
+
+.slack-logo {
+    height: 60px;
+    margin-bottom: 20px;
+}
+
+.home-header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.75px;
+    margin-bottom: 10px;
+}
+
+.home-header p {
+    font-size: 18px;
+    color: #454545;
+    margin-bottom: 20px;
+}
+
+.workspace-card-container {
+    width: 100%;
+    max-width: 600px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.list-label {
+    padding: 20px 24px;
+    margin: 0;
+    font-size: 15px;
+    border-bottom: 1px solid var(--border-color);
+    background-color: var(--slack-bg);
+    border-radius: 10px 10px 0 0;
+}
+
+.workspace-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--border-color);
+    transition: background 0.2s ease;
+}
+
+.workspace-item:last-child {
+    border-bottom: none;
+    border-radius: 0 0 8px 8px;
+}
+
+.workspace-item:hover {
+    background-color: #f9f9f9;
+}
+
+.workspace-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.workspace-icon {
+    width: 48px;
+    height: 48px;
+    background-color: #e0e0e0;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 20px;
+    color: var(--slack-purple);
+}
+
+.workspace-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.workspace-name {
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.workspace-members {
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+.workspace-btn {
+    background: transparent;
+    border: 1px solid #ddd;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.workspace-btn:hover {
+    border-color: var(--slack-purple);
+    box-shadow: inset 0 0 0 1px var(--slack-purple);
+}
+
+/* Loader y Error */
+.loader-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.error-msg {
+    color: #e01e5a;
+    padding: 20px;
+    display: block;
+}

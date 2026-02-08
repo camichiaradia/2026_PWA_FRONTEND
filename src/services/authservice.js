@@ -18,8 +18,8 @@ fecth recibe 2 paremetros
 - Un objeto de configuracion
 */
 
-const URL_API = import.meta.env.VITE_API_URL /* 'http://localhost:8080'
- */
+const URL_API = import.meta.env.VITE_API_URL /* 'http://localhost:8080'*/
+
 export async function login(email, password) {
     const response_http = await fetch(
         URL_API + '/api/auth/login',
@@ -27,6 +27,8 @@ export async function login(email, password) {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json', //Configuramos que voy enviar JSON en la peticion
+                'x-api-key': '4864da4a-2791-4113-931e-132644f2a3aa' //Configuramos que voy enviar JSON en la peticion
+
             },
             body: JSON.stringify( //transforma un Object a JSON en formato string
                 {
@@ -40,7 +42,7 @@ export async function login(email, password) {
     //Transformar la respuesta HTTP para obtener los datos que nos envio por body el servidor
     //Como el servidor envia JSON debemos tomar la response como json (.json())
     const response = await response_http.json()
-    if(!response.ok){
+    if (!response.ok) {
         throw new ServerError('Hubo un fallo en el login: ' + response.message, response.status)
     }
     return response
@@ -52,6 +54,7 @@ export async function register(username, password, email) {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json', //Configuramos que voy enviar JSON en la peticion
+                'x-api-key': '4864da4a-2791-4113-931e-132644f2a3aa' //Configuramos que voy enviar JSON en la peticion
             },
             body: JSON.stringify( //transforma un Object a JSON en formato string
                 {
@@ -66,7 +69,7 @@ export async function register(username, password, email) {
     //Transformar la respuesta HTTP para obtener los datos que nos envio por body el servidor
     //Como el servidor envia JSON debemos tomar la response como json (.json())
     const response = await response_http.json()
-    if(!response.ok){
+    if (!response.ok) {
         throw new ServerError('Hubo un fallo en el registro: ' + response.message, response.status)
     }
     return response
