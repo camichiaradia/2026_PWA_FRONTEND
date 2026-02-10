@@ -61,20 +61,7 @@ const HomeScreen = () => {
                     ) : (
                         <div className="empty-state">No tienes workspaces registrados</div>
                     )}                    {workspaces.length === 0 && <span>No tienes workspaces</span>}
-                    {workspaces.map(workspace => (
-                        <div key={workspace.workspace_id} className="workspace-item">
-                            <div className="workspace-info">
-                                <div className="workspace-icon">
-                                    {workspace.workspace_titulo.charAt(0).toUpperCase()}
-                                </div>
-                                <div className="workspace-details">
-                                    <div className="workspace-name">{workspace.workspace_titulo}</div>
-                                    <div className="workspace-members">{workspace.miembros_count} miembros</div>
-                                </div>
-                            </div>
-                            <button className="workspace-btn">Entrar</button>
-                        </div>
-                    ))}
+                    
                     {/* {workspace_list.data.workspaces && workspace_list.data.workspaces.length > 0 && workspace_list.data.workspaces.map(
                         workspace => <div key={workspace.workspace_id}>{workspace.workspace_titulo}</div>)}
 
