@@ -7,10 +7,10 @@ const CreateWorkspaceScreen = () => {
 
     const validateForm = (formValues) => {
         const errors = {}
-        const { title, description } = formValues
+        const { titulo, description } = formValues
 
-        if (!title.trim()) {
-            errors.title = 'El nombre del espacio de trabajo es obligatorio'
+        if (!titulo.trim()) {
+            errors.titulo = 'El nombre del espacio de trabajo es obligatorio'
         }
 
         if (!description.trim()) {
@@ -24,7 +24,7 @@ const CreateWorkspaceScreen = () => {
 
     const { form_state, onChangeFieldValue, onSubmitForm, errors } = useForm({
         initial_form_fields: {
-            title: '',
+            titulo: '',
             description: ''
         },
         onSubmit: (formValues) => {
