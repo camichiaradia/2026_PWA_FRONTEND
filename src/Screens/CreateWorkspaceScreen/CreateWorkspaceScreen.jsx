@@ -1,9 +1,11 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import useForm from '../../hooks/useForm'
 import './CreateWorkspaceScreen.css'
 
+
 const CreateWorkspaceScreen = () => {
+    const navigate = useNavigate()
 
     const validateForm = (formValues) => {
         const errors = {}
@@ -27,12 +29,34 @@ const CreateWorkspaceScreen = () => {
             titulo: '',
             description: ''
         },
-        onSubmit: (formValues) => {
+        onSubmit: async (formValues) => {
             console.log('Form submitted:', formValues)
-            // Aquí iría la lógica para enviar al backend
+            try {
+                const response = await fetch('http://localhost:8080/api/workspace', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'x-api-key': '4864da4a-2791-4113-931e-132644f2a3aa',
+                        'Authorization': `Bearer ${localStorage.getItem('auth_token')}`
+                    },
+                    body: JSON.stringify(formValues)
+                });
+
+                const result = await response.json();
+
+                if (result.ok) {
+                    navigate('/home');
+                } else {
+                    alert('Error: ' + result.message);
+                }
+            } catch (error) {
+                console.error('Error al conectar con el servidor:', error);
+                alert('No se pudo conectar con el servidor');
+            }
         },
         validate: validateForm
     })
+
 
     return (
         <div className="create-workspace-container">
