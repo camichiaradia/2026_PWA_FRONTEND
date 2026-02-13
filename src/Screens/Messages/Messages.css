@@ -1,0 +1,21 @@
+.name_message {
+    font-size: 15px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.p_message {
+    font-family: "Roboto";
+    font-weight: 400;
+    font-size: 15px;
+    margin: 5px 0;
+    /* Espacio alrededor del contenido principal  */
+    word-wrap: break-word;
+    /* Ajuste de  línea para texto largo */
+    align-self: flex-end;
+}
+
+.p_time {
+    font-family: "Roboto";
+    font-weight: 300;
+    font-size: 8px;
+}

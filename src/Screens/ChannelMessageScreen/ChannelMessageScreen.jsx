@@ -2,22 +2,27 @@ import React, { useContext, useState, useEffect } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
 import { WorkspaceContext } from '../../Context/WorkspaceContext'
 import { AuthContext } from '../../Context/AuthContext'
-import './WorkspaceDetailScreen.css'
 import MessagesList from '../MessagesList/MessagesList'
+import './ChannelMessageScreen.css'
 
-const WorkspaceDetailScreen = () => {
-    const { workspace_id } = useParams() // Obtiene el ID del workspace de la URL
+const ChannelMessageScreen = () => {
+    const { workspace_id, channel_id } = useParams() // Obtiene el ID del workspace de la URL
     const navigate = useNavigate()
     const { session } = useContext(AuthContext)
-    const { getWorkspaceChannels, channels_list, channels_list_loading, channels_list_error, workspace_list } = useContext(WorkspaceContext);
+    const { getWorkspaceChannels,
+        channels_list,
+        channels_list_loading,
+        channels_list_error,
+        workspace_list
+    } = useContext(WorkspaceContext);
 
     const [selectedChannel, setSelectedChannel] = useState(null)
     const [messageInput, setMessageInput] = useState('')
     // Simulamos mensajes (en una app real vendrían de la API)
     const [messages, setMessages] = useState([])
 
+    // Cargar los canales del workspace cuando el componente se monte o el workspace_id cambie
     useEffect(() => {
-        // Cargar los canales del workspace cuando el componente se monte o el workspace_id cambie
         if (workspace_id) {
             getWorkspaceChannels(workspace_id)
         }
@@ -25,12 +30,15 @@ const WorkspaceDetailScreen = () => {
 
     // Lógica para cuando los canales se cargan, seleccionar el primero por defecto
     useEffect(() => {
-        const channels = channels_list?.data?.channels
-        if (channels && channels.length > 0 && !selectedChannel) {
-            setSelectedChannel(channels[0])
-            loadMessagesForChannel(channels[0]._id)
+        const channels = channels_list?.data?.channels || channels_list?.data || [];
+        if (channels.length > 0) {
+            const channelEncontrado = channels.find(c => String(c._id) === String(channel_id));
+            if (channelEncontrado) {
+                setSelectedChannel(channelEncontrado);
+                loadMessagesForChannel(channelEncontrado._id);
+            }
         }
-    }, [channels_list, selectedChannel]) // Dependencias para evitar bucles infinitos
+    }, [channels_list, channel_id])
 
     const loadMessagesForChannel = (channelId) => {
         // Simulación de carga de mensajes. En una app real, harías una llamada a la API.
@@ -64,12 +72,14 @@ const WorkspaceDetailScreen = () => {
         navigate(`/workspace/${workspace_id}/channel/${channel._id}`)
     }
 
-    /*  // Función para manejar la selección de un canal
-     if (channels_list_loading) return <div className="loader"></div>
-     if (channels_list_error) return <div className="error">Error: {channels_list_error.message}</div> */
-
+    // Función para manejar la selección de un canal
+    /*     if (channels_list_loading) return <div className="loader"></div>
+        if (channels_list_error) return <div className="error">Error: {channels_list_error.message}</div> */
     // Obtener datos de forma segura
     const channels = channels_list?.data?.channels || channels_list?.data || [];
+    if (channels_list_loading && channels.length === 0) {
+        return <div className="workspace-detail-loading"><div className="loader"></div><p>Cargando Workspace...</p></div>
+    }
     console.log("Datos recibidos de la API:", channels_list);
 
     const currentWorkspace = workspace_list?.data?.workspaces?.find(
@@ -87,11 +97,13 @@ const WorkspaceDetailScreen = () => {
                 <nav className="channels-nav">
                     <h3>Canales</h3>
                     <ul>
-                        {channels_list_loading ? (
-                            <li>Cargando...</li>
-                        ) : channels.length > 0 ? (
+                        {channels.length > 0 ? (
                             channels.map(channel => (
-                                <li key={channel._id} onClick={() => handleChannelSelect(channel)}>
+                                <li
+                                    key={channel._id}
+                                    onClick={() => handleChannelSelect(channel)}
+                                    className={channel._id === channel_id ? "active" : ""}
+                                >
                                     # {channel.nombre}
                                 </li>
                             ))
@@ -105,21 +117,12 @@ const WorkspaceDetailScreen = () => {
 
             <main className="chat-area">
                 <header className="chat-header">
-                    <h1>Bienvenidos nuevamente</h1>
+                    <h1># {selectedChannel ? selectedChannel.nombre : "Cargando canal..."}</h1>
                 </header>
 
                 <div className="message-list empty-state">
-                    <div className="empty-state-wrapper">
 
-                        <div className="header_logo">
-                            <img className='logo_slack' src='/Slack_logo.png' alt='logo_Slack'>
-                            </img>
-                        </div>
-                        <div className="empty-state-text">
-                            <div> Selecciona un canal para ver los mensajes</div>
-                        </div>
-                    </div>
-                    {/* {messages.length > 0 ? (
+                    {messages.length > 0 ? (
                         messages.map(msg => (
                             <div key={msg.id} className="message-item">
                                 <div className="message-avatar">
@@ -136,10 +139,10 @@ const WorkspaceDetailScreen = () => {
                         <div className="empty-chat">
                             <p>Sé el primero en enviar un mensaje en este canal.</p>
                         </div>
-                    )} */}
+                    )}
                 </div>
 
-                {/* <footer className="chat-input-area">
+                <footer className="chat-input-area">
                     <form onSubmit={handleSendMessage}>
                         <input
                             type="text"
@@ -150,10 +153,10 @@ const WorkspaceDetailScreen = () => {
                         />
                         <button type="submit" disabled={!selectedChannel || !messageInput.trim()}>Enviar</button>
                     </form>
-                </footer> */}
+                </footer>
             </main>
         </div>
     );
 };
 
-export default WorkspaceDetailScreen;
+export default ChannelMessageScreen;

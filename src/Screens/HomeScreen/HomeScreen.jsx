@@ -6,6 +6,7 @@ import './HomeScreen.css'
 const HomeScreen = () => {
     const { workspace_list_loading, workspace_list_error, workspace_list } = useContext(WorkspaceContext)
     const navigate = useNavigate()
+
     console.log("Datos recibidos:", workspace_list?.data?.workspaces);
 
 
@@ -37,7 +38,8 @@ const HomeScreen = () => {
             const result = await response.json();
             if (result.ok) {
                 alert('Espacio eliminado correctamente');
-                window.location.reload();
+                /* window.location.reload(); */
+                setTimeout(() => window.location.reload(), 500);
             } else {
                 alert('Error: ' + result.message);
             }
@@ -76,8 +78,7 @@ const HomeScreen = () => {
         <div className="home-container">
             <header className="home-header">
                 <div className="header_logo">
-                    <img className='logo_slack' src='Slack_logo.png' alt='logo_Slack'>
-                    </img>
+                    <img className='logo_slack' src='Slack_logo.png' alt='logo_Slack' />
                 </div>
                 <h1>Bienvenido nuevamente</h1>
                 <p>Elige un espacio de trabajo para volver a <strong>comunicarte con tu equipo.</strong></p>
@@ -96,31 +97,37 @@ const HomeScreen = () => {
                                     <div className="workspace-icon">
                                         {workspace.workspace_titulo.charAt(0).toUpperCase()}
                                     </div>
+
                                     <div className="workspace-details">
                                         <span className="workspace-name">{workspace.workspace_titulo}</span>
                                         <span className="workspace-members">Miembros activos</span>
-
-                                        <div className="workspace-actions-row">
-                                            <button
-                                                className="btn-action-text edit"
-                                                onClick={() => handleEditar(workspace.workspace_id, workspace.workspace_titulo)}
-                                            >
-                                                Editar
-                                            </button>
-                                            <button
-                                                className="btn-action-text delete"
-                                                onClick={() => handleEliminar(workspace.workspace_id)}
-                                            >
-                                                Eliminar
-                                            </button>
-                                        </div>
                                     </div>
+
                                 </div>
                                 <button
                                     className="workspace-btn"
                                     onClick={() => handleOpenWorkspace(workspace.workspace_id)}>
                                     Entrar
                                 </button>
+                                <div className="workspace-actions">
+                                    <div className="action-edit">
+                                        <button
+                                            className="btn-action-icon edit"
+                                            onClick={() => handleEditar(workspace.workspace_id, workspace.workspace_titulo)}
+                                        >
+                                            <i className="bi bi-pencil-square"></i>
+                                        </button>
+                                    </div>
+                                    <div className="action-delete">
+                                        <button
+                                            className="btn-action-icon delete"
+                                            onClick={() => handleEliminar(workspace.workspace_id)}
+                                        >
+                                            <i className="bi bi-trash3"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
                             </div>
                         ))
                     ) : (

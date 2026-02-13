@@ -15,21 +15,35 @@ body {
 
 .home-container {
     max-width: 800px;
-    margin: 10px auto;
+    margin: 0 auto;
     padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
+
 }
 
 .home-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+.header_logo {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 10px;
 }
 
 .header_logo .logo_slack {
-    height: 90px;
     margin-bottom: 20px;
+    align-content: center;
+    justify-content: center;
 }
 
 .hero_login h1 {
@@ -66,6 +80,7 @@ body {
 .workspace-card-container {
     width: 100%;
     max-width: 600px;
+    margin: 0 auto;
     border: 1px solid var(--border-color);
     border-radius: 8px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
@@ -84,8 +99,8 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 24px;
-    border-bottom: 1px solid var(--border-color);
+    padding: 15px 20px;
+    border-bottom: 1px solid #eeeeee;
     transition: background 0.2s ease;
 }
 
@@ -163,29 +178,65 @@ body {
 }
 
 /* acciones de los botones de eliminar y editar */
-.workspace-actions-links {
+.workspace-actions {
     display: flex;
-    gap: 10px;
-    margin-top: 4px;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 8px;
+    margin: 10px;
 }
 
-.action-link {
+.btn-action-text {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 1.1rem;
+}
+
+.btn-action-icon {
     background: none;
     border: none;
     padding: 0;
-    font-size: 0.8rem;
-    cursor: pointer;
-    text-decoration: underline;
+    margin: 0;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    color: #b0b0b0;
+    transition: color 0.2s ease, transform 0.1s ease;
 }
 
-.action-link.edit {
-    color: #1264a3;
+.btn-action-icon:hover {
+    transform: scale(1.1);
+    color: #616061;
 }
 
-.action-link.delete {
+.btn-action-icon.edit:hover {
+    color: #0055ff;
+}
+
+.btn-action-icon.delete:hover {
     color: #e01e5a;
 }
 
-.action-link:hover {
-    filter: brightness(1.2);
+/* Boton de entrar */
+.workspace-btn {
+    margin-left: auto;
+    background: transparent;
+    border: 1px solid #ddd;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.action-edit {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.action-delete {
+    display: flex;
+    justify-content: flex-end;
 }

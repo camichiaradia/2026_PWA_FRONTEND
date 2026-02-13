@@ -24,8 +24,8 @@
 }
 
 .header_logo .logo_slack {
-    height: 90px;
-    margin-bottom: 20px;
+    height: 100%;
+    margin-bottom: 0px;
 }
 
 .create-workspace-header h1 {
