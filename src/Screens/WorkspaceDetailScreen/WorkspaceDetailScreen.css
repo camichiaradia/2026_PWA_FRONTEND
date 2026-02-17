@@ -22,17 +22,21 @@
 
 .sidebar-header {
     height: 80px;
-    padding: 20px;
+    padding: 0px 20px;
     border-bottom: 1px solid #5a1d5a;
     display: flex;
-    flex-direction: column;
-    gap: 5px;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
 }
 
 .sidebar-header h2 {
     font-size: 20px;
     font-weight: 900;
     margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .user-status {
@@ -100,10 +104,11 @@
 /* --- Área Principal del Chat --- */
 .chat-area {
     flex-grow: 1;
-    /* Ocupa todo el espacio horizontal restante */
     display: flex;
     flex-direction: column;
     background-color: #ffffff;
+    height: 100vh;
+    overflow: hidden;
 }
 
 .chat-header {
@@ -148,19 +153,24 @@
 .empty-state-wrapper {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
+    flex-grow: 1;
+    height: 100%;
 }
 
 .logo_slack {
     width: 120px;
     height: auto;
     display: block;
+    margin-bottom: 20px;
 }
 
 .empty-state-text {
     font-size: 1.1rem;
     color: #616061;
     font-weight: 400;
+    text-align: center;
 }
 
 /* Ventana chat */
@@ -171,6 +181,14 @@
     display: flex;
     flex-direction: column;
     gap: 15px;
+}
+
+.message-list-container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background-color: #ffffff;
 }
 
 .message-item {
@@ -319,6 +337,14 @@
 .workspace-detail-error p {
     font-size: 16px;
     margin-bottom: 20px;
+}
+
+.loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
 }
 
 .workspace-detail-error a {

@@ -1,0 +1,88 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    padding: 10px;
+}
+
+.mensaje_izquierda,
+.mensaje_derecha {
+    /* Define el ancho máximo del globo de mensaje */
+    max-width: 75%;
+    /* Elimina el margen por defecto y define el propio */
+    margin: 0;
+}
+
+.tarjeta_chat {
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    background-color: #eee;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+
+.mensaje_izquierda {
+    align-self: flex-start;
+    width: 300px;
+}
+
+.mensaje_izquierda .tarjeta_chat {
+    background-color: #dcf8c6;
+    color: #333;
+    border-bottom-left-radius: 5px;
+}
+
+.mensaje_derecha {
+    align-self: flex-end;
+    width: 300px;
+}
+
+.mensaje_derecha .tarjeta_chat {
+    background-color: #f3f1f1;
+    color: #333;
+    border-bottom-right-radius: 5px;
+}
+
+.name_message {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-bottom: 2px;
+}
+
+.mensaje_derecha span {
+    color: #128c7e;
+}
+
+.mensaje_izquierda span {
+    color: #8422c6;
+}
+
+
+.p_time {
+    font-family: "Roboto";
+    font-size: 10px;
+    font-weight: 500;
+}
+
+.name_message {
+    font-size: 15px;
+    font-family: "Roboto";
+}
+
+.p_message {
+    font-family: "Roboto";
+    font-weight: 400;
+    font-size: 15px;
+    margin: 5px 0;
+    /* Espacio alrededor del contenido principal  */
+    word-wrap: break-word;
+    /* Ajuste de  línea para texto largo */
+    align-self: flex-end;
+}
