@@ -1,0 +1,87 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.hero_login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Slack-Larsseit', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: #fff;
+    padding: 20px;
+}
+
+.header {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+
+h1 {
+    font-weight: 700;
+    letter-spacing: -0.75px;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 18px;
+    color: #454545;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+form {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    border: 1px solid #868686;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+}
+
+input[type="password"]:focus {
+    outline: none;
+    border-color: #1264a3;
+    box-shadow: 0 0 0 1px #1264a3;
+}
+
+.btn-login {
+    background-color: #4a154b;
+    /* El púrpura de Slack que tienes en tu imagen */
+    color: white;
+    padding: 12px;
+    font-size: 18px;
+    font-weight: 700;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-login:hover {
+    background-color: #5d1c5e;
+}
+
+.btn-login:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.success-view {
+    text-align: center;
+}

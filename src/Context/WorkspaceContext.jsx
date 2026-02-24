@@ -1,73 +1,105 @@
-import { createContext, useEffect } from "react";
+import { createContext, useEffect, useState } from "react";
 import useRequest from "../hooks/useRequest";
-import { getWorkspaceList, getChannelsByWorkspaceService, getMessagesByChannelService, createMessageService, createChannelService } from "../services/workspaceService";
+import {
+    getWorkspaceList,
+    getChannelsByWorkspaceService,
+    createMessageService,
+    createChannelService
+} from "../services/workspaceService";
 
-
-export const WorkspaceContext = createContext(
-    {
-        workspace_list_loading: false,
-        workspace_list: null,
-        workspace_list_error: null
-    }
-)
+export const WorkspaceContext = createContext({
+    workspace_list_loading: false,
+    workspace_list: null,
+    workspace_list_error: null
+});
 
 const WorkspaceContextProvider = ({ children }) => {
     const listRequest = useRequest();
     const channelsRequest = useRequest();
-    const messagesRequest = useRequest();
     const createMessageRequest = useRequest();
     const createChannelRequest = useRequest();
-    const URL_API = import.meta.env.VITE_API_URL;
 
+    const [messages_list, setMessagesList] = useState({
+        data: { messages: [] },
+        loading: false,
+        error: null
+    });
 
+    // Cargar Workspaces al inicio
+    useEffect(() => {
+        listRequest.sendRequest(getWorkspaceList);
+    }, []);
 
-    useEffect(
-        () => {
-            listRequest.sendRequest(
-                getWorkspaceList
-            )
-        },
-        []
-    )
-    //FUNCIÓN: Obtener canales
+    // FUNCIÓN: Obtener canales
     const getWorkspaceChannels = async (workspace_id) => {
         await channelsRequest.sendRequest(
             () => getChannelsByWorkspaceService(workspace_id)
         );
-    }
+    };
 
-    //FUNCIÓN: Obtener mensajes
-    const getMessagesByChannel = async (workspace_id, channel_id) => {
-        await messagesRequest.sendRequest(
-            () => getMessagesByChannelService(workspace_id, channel_id)
-        );
-    }
+    // FUNCIÓN: Obtener mensajes (Corregida con limpieza lógica)
+    const getMessagesByChannel = async (workspace_id, channel_id, isNewChannel = false) => {
+        if (isNewChannel) {
+            setMessagesList({
+                data: { messages: [] },
+                loading: true,
+                error: null
+            });
+        }
 
-    //FUNCIÓN: Crear mensaje
+        try {
+            const token = localStorage.getItem('auth_token');
+            const response = await fetch(`http://localhost:8080/api/workspace/${workspace_id}/channels/${channel_id}/messages`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                    'x-api-key': '4864da4a-2791-4113-931e-132644f2a3aa'
+                }
+            });
+            const result = await response.json();
+
+            if (result.ok) {
+                setMessagesList({
+                    data: { messages: result.data.messages || [] },
+                    loading: false,
+                    error: null
+                });
+            }
+        } catch (error) {
+            console.error("Error en getMessagesByChannel:", error);
+            setMessagesList(prev => ({
+                ...prev,
+                loading: false,
+                error: error.message
+            }));
+        }
+    };
+
+    // FUNCIÓN: Crear mensaje
     const createMessage = async (workspace_id, channel_id, mensaje) => {
         await createMessageRequest.sendRequest(
             () => createMessageService(workspace_id, channel_id, mensaje)
         );
-        // Opcional: Recargar mensajes después de crear uno
-        await getMessagesByChannel(workspace_id, channel_id);
-    }
+        // Actualización silenciosa (isNewChannel = false)
+        await getMessagesByChannel(workspace_id, channel_id, false);
+    };
 
-    //FUNCIÓN: Crear canal
+    // FUNCIÓN: Crear canal
     const createChannel = async (workspace_id, channel_name) => {
         await createChannelRequest.sendRequest(
             () => createChannelService(workspace_id, channel_name)
         );
-        // Opcional: Recargar canales después de crear uno
         await getWorkspaceChannels(workspace_id);
-    }
+    };
 
     const provider_values = {
-        // Workspaces (HomeScreen)
+        // Workspaces
         workspace_list_loading: listRequest.loading,
         workspace_list: listRequest.response,
         workspace_list_error: listRequest.error,
 
-        // Canales (WorkspaceDetailScreen)
+        // Canales
         channels_list_loading: channelsRequest.loading,
         channels_list: channelsRequest.response,
         channels_list_error: channelsRequest.error,
@@ -75,22 +107,20 @@ const WorkspaceContextProvider = ({ children }) => {
         createChannel,
         create_channel_loading: createChannelRequest.loading,
 
-
-        // Mensajes (ChannelMessageScreen)
-        messages_list_loading: messagesRequest.loading,
-        messages_list: messagesRequest.response,
-        messages_list_error: messagesRequest.error,
+        // Mensajes
+        messages_list_loading: messages_list.loading,
+        messages_list: messages_list,
+        messages_list_error: messages_list.error,
         getMessagesByChannel,
         createMessage,
-        create_message_loading: createMessageRequest.loading // Exponer loading para deshabilitar botón mientras envía
+        create_message_loading: createMessageRequest.loading
     };
 
     return (
-        <WorkspaceContext.Provider
-            value={provider_values}>
+        <WorkspaceContext.Provider value={provider_values}>
             {children}
         </WorkspaceContext.Provider>
-    )
-}
+    );
+};
 
-export default WorkspaceContextProvider
+export default WorkspaceContextProvider;

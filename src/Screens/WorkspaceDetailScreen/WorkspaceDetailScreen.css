@@ -1,14 +1,18 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
 .workspace-detail-container {
     display: flex;
     height: 100vh;
-    /* Ocupa toda la altura de la ventana */
     font-family: 'Slack-Larsseit', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     color: #1d1c1d;
     background-color: #f8f8f8;
-    /* Fondo general de la app */
 }
 
-/* --- Barra Lateral (Sidebar) --- */
+/* Barra Lateral (Sidebar) */
 .sidebar {
     font-family: 'Slack-Larsseit', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     width: 260px;
@@ -46,7 +50,6 @@
 
 .channels-nav {
     flex-grow: 1;
-    /* Ocupa el espacio restante */
     padding: 20px 0;
 }
 
@@ -73,12 +76,10 @@
 
 .channels-nav li:hover {
     background-color: #4a154b;
-    /* Un púrpura ligeramente más claro */
 }
 
 .channels-nav li.active {
     background-color: #1d9bd1;
-    /* Color de selección de Slack (azul) */
     color: white;
     font-weight: bold;
 }
@@ -101,7 +102,7 @@
     background-color: #4a154b;
 }
 
-/* --- Área Principal del Chat --- */
+/* Área Principal del Chat */
 .chat-area {
     flex-grow: 1;
     display: flex;
@@ -111,9 +112,9 @@
     overflow: hidden;
 }
 
-.chat-header {
-    height: 80px;
-    padding: 22px 20px;
+.chat-header-slack {
+    height: 60px;
+    padding: 0px 20px;
     border-bottom: 1px solid #e8e8e8;
     background-color: #ffffff;
     display: flex;
@@ -121,7 +122,6 @@
     gap: 5px;
     box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
     z-index: 10;
-
 }
 
 .chat-header h2 {
@@ -141,11 +141,9 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* Centro vertical */
     align-items: center;
-    /* Centro horizontal */
     height: 100%;
-    /* Asegura que tome el alto del padre */
+
     flex-grow: 1;
 }
 
@@ -202,7 +200,6 @@
     width: 36px;
     height: 36px;
     background-color: #e01e5a;
-    /* Color de avatar aleatorio/inicial */
     color: white;
     border-radius: 4px;
     display: flex;
@@ -211,7 +208,6 @@
     font-weight: bold;
     font-size: 14px;
     flex-shrink: 0;
-    /* Evita que el avatar se encoja */
 }
 
 .message-content {
@@ -296,7 +292,7 @@
 }
 
 
-/* --- Estados de carga y error --- */
+/* Estados de carga y error */
 .workspace-detail-loading,
 .workspace-detail-error {
     display: flex;

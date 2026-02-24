@@ -46,6 +46,14 @@ const LoginScreen = () => {
                         placeholder="Contraseña"
                         value={form_state.password} />
                 </div>
+
+                <div className="forgot-password-container">
+                    <span>
+                        ¿Olvidaste tu contraseña? <Link to="/forgot-password" title="Recuperar contraseña">
+                            Recuperar contraseña
+                        </Link>
+                    </span>
+                </div>
                 {
                     error && <span style={{ color: '#e01e5a', marginBottom: '10px' }}>{error.message}</span>
                 }
@@ -63,7 +71,7 @@ const LoginScreen = () => {
                 </button>
             </form>
             <span>
-                Aun no tienes cuenta? <Link to="/register">Registrate</Link>
+                ¿Aún no tienes cuenta? <Link to="/register">Registrate</Link>
             </span>
         </div>
     )

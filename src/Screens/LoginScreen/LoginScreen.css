@@ -76,6 +76,7 @@ button[type="submit"] {
     cursor: pointer;
     transition: background-color 200ms ease;
     margin-bottom: 15px;
+    margin-top: 15px;
 }
 
 button[type="submit"]:hover {

@@ -39,19 +39,23 @@ const CreateWorkspaceScreen = () => {
                         'x-api-key': '4864da4a-2791-4113-931e-132644f2a3aa',
                         'Authorization': `Bearer ${localStorage.getItem('auth_token')}`
                     },
-                    body: JSON.stringify(formValues)
+                    body: JSON.stringify({
+                        titulo: formValues.titulo,
+                        description: formValues.description
+                    })
                 });
 
                 const result = await response.json();
 
-                if (result.ok) {
+                if (response.ok && result.ok) {
+                    console.log("Éxito:", result.data.workspace);
                     navigate('/home');
                 } else {
-                    alert('Error: ' + result.message);
+                    alert('Error: ' + (result.message || 'No se pudo crear el espacio'));
                 }
             } catch (error) {
-                console.error('Error al conectar con el servidor:', error);
-                alert('No se pudo conectar con el servidor');
+                console.error('Error de conexión:', error);
+                alert('Error al conectar con el servidor');
             }
         },
         validate: validateForm

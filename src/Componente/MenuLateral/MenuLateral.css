@@ -1,0 +1,344 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+:root {
+    --slack-purple: #350d36;
+    --slack-hover: #3f0e40;
+    --slack-active: #1164a3;
+    --text-muted: #bcabbc;
+    --text-white: #ffffff;
+}
+
+.contenedor-sidebar {
+    display: flex;
+    height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-white);
+}
+
+.barra-global {
+    width: 70px;
+    background-color: var(--slack-purple);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 15px;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo-ut {
+    width: 40px;
+    height: 40px;
+    background-color: #616061;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 20px;
+    margin-bottom: 25px;
+    color: white;
+    text-transform: uppercase;
+}
+
+.item-global {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 24px;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+    color: white;
+}
+
+.item-global.activo {
+    opacity: 1;
+}
+
+.item-global .icon {
+    font-size: 20px;
+    display: block;
+}
+
+.item-global p {
+    font-size: 10px;
+    margin-top: 4px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 0;
+}
+
+.footer-global {
+    margin-top: auto;
+    padding-bottom: 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.btn-add {
+    width: 36px;
+    height: 36px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 300;
+    cursor: pointer;
+    transition: background 0.1s ease, transform 0.1s ease;
+    color: white;
+}
+
+.btn-add.loading {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.btn-add:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: scale(1.05);
+}
+
+.btn-add:active {
+    transform: scale(0.95);
+}
+
+.item-workspace.activo {
+    background-color: var(--slack-active-bg);
+    color: white !important;
+}
+
+.hashtag {
+    opacity: 0.6;
+    margin-right: 4px;
+    font-weight: normal;
+}
+
+.avatar-usuario {
+    width: 36px;
+    height: 36px;
+    background: #445b64;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.status-online {
+    width: 10px;
+    height: 10px;
+    background: #2bac76;
+    border: 2px solid var(--slack-purple);
+    border-radius: 50%;
+    position: absolute;
+    bottom: -2px;
+    right: -2px;
+}
+
+.plus-symbol {
+    color: var(--text-white);
+    font-size: 24px;
+    font-weight: 300;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 0;
+    margin-top: -2px;
+    user-select: none;
+}
+
+.btn-add.loading .plus-symbol {
+    font-size: 14px;
+    margin-top: 0;
+}
+
+.perfil-contenedor {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.avatar-usuario {
+    cursor: pointer;
+}
+
+.avatar-contenedor-relativo {
+    position: relative;
+    /* Base para el menú */
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.menu-usuario-dropdown {
+    position: absolute;
+    bottom: 50px;
+    /* Aparece arriba del avatar */
+    left: 10px;
+    width: 250px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    padding: 10px 0;
+}
+
+/* Caja principal del menú */
+.dropdown-usuario {
+    position: absolute;
+    bottom: 0px;
+    /* Alineado con el avatar */
+    left: 60px;
+    /* Aparece a la derecha de la barra lateral */
+    width: 280px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, .1), 0 10px 20px rgba(0, 0, 0, .1);
+    z-index: 9999;
+    padding: 12px 0;
+    animation: fadeIn 0.1s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Cabecera del menú */
+.dropdown-header {
+    display: flex;
+    padding: 0 16px 12px 16px;
+    gap: 12px;
+    align-items: center;
+}
+
+.avatar-mini {
+    width: 36px;
+    height: 36px;
+    background-color: #3f0e40;
+    color: white;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.user-details {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.user-name {
+    font-weight: 900;
+    color: #1d1c1d;
+    font-size: 15px;
+}
+
+.user-status {
+    font-size: 13px;
+    color: #616061;
+}
+
+/* Botones del menú */
+.dropdown-item {
+    width: 100%;
+    border: none;
+    background: none;
+    text-align: left;
+    padding: 8px 24px;
+    font-size: 14px;
+    color: #1d1c1d;
+    cursor: pointer;
+}
+
+.dropdown-item:hover {
+    background-color: #1264a3;
+    color: white;
+}
+
+.logout-btn {
+    color: #1d1c1d;
+}
+
+.dropdown-divider {
+    height: 1px;
+    background-color: #ddd;
+    margin: 8px 0;
+}
+
+/* agregado */
+
+.avatar-contenedor-relativo {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.menu-usuario-dropdown {
+    position: absolute;
+    bottom: 50px;
+    /* Aparece arriba del avatar */
+    left: 10px;
+    /* Alineado a la izquierda */
+    width: 260px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, .1), 0 10px 20px rgba(0, 0, 0, .1);
+    z-index: 9999;
+    /* Por encima de todo */
+    color: #1d1c1d;
+    padding: 12px 0;
+    text-align: left;
+}
+
+.menu-header {
+    display: flex;
+    padding: 0 16px 12px;
+    gap: 12px;
+    align-items: center;
+}
+
+.user-info strong {
+    display: block;
+    font-size: 15px;
+}
+
+.status-text {
+    font-size: 13px;
+    margin: 0;
+    color: #616061;
+}
+
+.menu-item {
+    padding: 8px 24px;
+    font-size: 14px;
+    cursor: pointer;
+    color: #1d1c1d;
+}
+
+.menu-item:hover {
+    background-color: #1264a3;
+    color: white;
+}
+
+.menu-item.logout {
+    color: #e01e5a;
+}

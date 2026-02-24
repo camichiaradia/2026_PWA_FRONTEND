@@ -1,6 +1,85 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.mensaje_izquierda,
+.mensaje_derecha {
+    width: 30%;
+    margin: 5px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.tarjeta_chat {
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    background-color: #eee;
+    padding: 10px 14px;
+    margin-bottom: 10px;
+    position: relative;
+    width: 100%;
+    min-width: 250px;
+    border-radius: 4px;
+}
+
+/* --- LADO IZQUIERDO --- */
+.mensaje_izquierda {
+    align-self: flex-start;
+}
+
+.mensaje_izquierda .tarjeta_chat {
+    background-color: #dcf8c6;
+    color: #333;
+    border-bottom-left-radius: 5px;
+}
+
+.mensaje_izquierda .name_message {
+    color: #8422c6;
+}
+
+/* --- LADO DERECHO (Yo)--- */
+
+.mensaje_derecha {
+    align-self: flex-end;
+}
+
+.mensaje_derecha .tarjeta_chat {
+    background-color: #f3f1f1;
+    color: #333;
+    border-bottom-right-radius: 5px;
+}
+
+.mensaje_derecha .name_message {
+    color: #128c7e;
+    text-align: right;
+}
+
+.mensaje_derecha .p_message {
+    text-align: right;
+}
+
+.mensaje_derecha .p_time {
+    text-align: right;
+}
+
+/* --- TEXTOS --- */
+
 .name_message {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 4px;
     font-size: 15px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: "Roboto", sans-serif;
 }
 
 .p_message {
@@ -8,14 +87,14 @@
     font-weight: 400;
     font-size: 15px;
     margin: 5px 0;
-    /* Espacio alrededor del contenido principal  */
     word-wrap: break-word;
-    /* Ajuste de  línea para texto largo */
-    align-self: flex-end;
 }
 
 .p_time {
     font-family: "Roboto";
-    font-weight: 300;
     font-size: 8px;
+    font-weight: 500;
+    display: block;
+    text-align: right;
+    opacity: 0.7;
 }

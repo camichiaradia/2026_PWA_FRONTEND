@@ -3,24 +3,23 @@ import { useParams, useNavigate } from 'react-router-dom'
 import { WorkspaceContext } from '../../Context/WorkspaceContext'
 import { AuthContext } from '../../Context/AuthContext'
 import './WorkspaceDetailScreen.css'
-import MessagesList from '../../Componente/MessagesList/MessagesList'
+import BarraBuscador from '../../Componente/BarraBuscador/BarraBuscador.jsx'
+import BarraLateral from '../../Componente/BarraLateral/BarraLateral.jsx'
+import MenuLateral from '../../Componente/MenuLateral/MenuLateral.jsx'
 
 const WorkspaceDetailScreen = () => {
     const { workspace_id } = useParams()
     const navigate = useNavigate()
     const { session } = useContext(AuthContext)
 
-    // Consolidamos todo en una sola extracción del Context
     const {
         getWorkspaceChannels,
         channels_list,
-        channels_list_loading,
         workspace_list,
         getMessagesByChannel,
-        messages_list,
-        messages_list_loading,
         createMessage,
-        createChannel
+        createChannel,
+        create_channel_loading
     } = useContext(WorkspaceContext);
 
     const [selectedChannel, setSelectedChannel] = useState(null)
@@ -47,7 +46,6 @@ const WorkspaceDetailScreen = () => {
     const handleChannelSelect = (channel) => {
         setSelectedChannel(channel)
         getMessagesByChannel(workspace_id, channel._id)
-        // Navegación opcional si manejas rutas de canales
         navigate(`/workspace/${workspace_id}/channel/${channel._id}`)
     }
 
@@ -71,71 +69,33 @@ const WorkspaceDetailScreen = () => {
     const currentWorkspaceName = currentWorkspace?.workspace_titulo || "Cargando...";
 
     return (
-        <div className="workspace-detail-container">
-            <aside className="sidebar">
-                <div className="sidebar-header">
-                    <h2>{currentWorkspaceName}</h2>
-                    {/* Flecha alineada a la derecha */}
-                    <button
-                        className="back-btn"
-                        onClick={() => navigate('/home')}
-                        title="Volver a mis workspaces"
-                    >
-                        <i className="bi bi-arrow-left-short"></i>
-                    </button>
-                </div>
+        <div className="main-layout-container">
+            <BarraBuscador workspaceName={currentWorkspaceName} />
 
-                <nav className="channels-nav">
-                    <h3>Canales</h3>
-                    <ul>
-                        {channels_list_loading ? (
-                            <li>Cargando...</li>
-                        ) : channels.length > 0 ? (
-                            channels.map(channel => (
-                                <li
-                                    key={channel._id}
-                                    className={selectedChannel?._id === channel._id ? 'active' : ''}
-                                    onClick={() => handleChannelSelect(channel)}
-                                >
-                                    # {channel.nombre}
-                                </li>
-                            ))
-                        ) : (
-                            <li>No hay canales</li>
-                        )}
-                    </ul>
-                    <button className="create-channel-btn" onClick={handleAddChannel}>
-                        + Añadir canal
-                    </button>
-                </nav>
-            </aside>
+            <div className="content-wrapper">
+                <MenuLateral
+                    workspaceName={currentWorkspaceName}
+                    channels={channels}
+                    currentChannelId={selectedChannel?._id}
+                    onChannelSelect={handleChannelSelect}
+                    userSession={session}
+                    onAddChannelClick={handleAddChannel}
+                    isLoadingChannel={create_channel_loading}
+                />
 
-            <main className="chat-area">
-                <header className="chat-header">
-                    <h1>{selectedChannel ? `# ${selectedChannel.nombre}` : `Bienvenidos a ${currentWorkspaceName}!`}</h1>
-                </header>
+                <BarraLateral
+                    workspaceName={currentWorkspaceName}
+                    channels={channels}
+                    channel_id={selectedChannel?._id}
+                    onChannelSelect={handleChannelSelect}
+                />
 
-                <div className="message-list-container">
-                    {messages_list_loading && !messages_list ? (
-                        <div className="loader-container"><span className="loader"></span></div>
-                    ) : selectedChannel ? (
-                        <>
-                            <MessagesList messages={messages_list?.data?.messages || messages_list?.data || []} />
+                <main className="chat-area">
+                    <header className="chat-header-slack">
+                        <h1># {selectedChannel?.nombre || 'Selecciona un canal'}</h1>
+                    </header>
 
-                            {/* Input solo aparece si hay canal */}
-                            <div className="chat-input-area">
-                                <form onSubmit={handleSendMessage}>
-                                    <input
-                                        type="text"
-                                        placeholder={`Enviar mensaje a #${selectedChannel.nombre}`}
-                                        value={messageInput}
-                                        onChange={(e) => setMessageInput(e.target.value)}
-                                    />
-                                    <button type="submit">Enviar</button>
-                                </form>
-                            </div>
-                        </>
-                    ) : (
+                    {!selectedChannel ? (
                         <div className="empty-state-wrapper">
                             <div className="header_logo">
                                 <img className='logo_slack' src='/Slack_logo.png' alt='logo_Slack' />
@@ -144,9 +104,13 @@ const WorkspaceDetailScreen = () => {
                                 Selecciona un canal para ver los mensajes
                             </div>
                         </div>
+                    ) : (
+                        <div className="messages-container">
+
+                        </div>
                     )}
-                </div>
-            </main>
+                </main>
+            </div>
         </div>
     );
 };

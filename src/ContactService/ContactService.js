@@ -1,4 +1,4 @@
-import contacts from "../data/contactsData";
+import contacts from "../../data/staticChannelsData.js"
 
 export function getAllContacts() {
     return contacts

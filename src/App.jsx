@@ -9,6 +9,8 @@ import HomeScreen from './Screens/HomeScreen/HomeScreen'
 import CreateWorkspaceScreen from './Screens/CreateWorkspaceScreen/CreateWorkspaceScreen'
 import WorkspaceDetailScreen from './Screens/WorkspaceDetailScreen/WorkspaceDetailScreen'
 import ChannelMessageScreen from './Screens/ChannelMessageScreen/ChannelMessageScreen'
+import ForgotPasswordScreen from './Screens/ForgotPasswordScreen/ForgotPasswordScreen'
+import ResetPasswordScreen from './Screens/ResetPasswordScreen/ResetPasswordScreen'
 
 function App() {
   return (
@@ -18,6 +20,10 @@ function App() {
         <Route path='/' element={<Navigate to="/login" />} />
         <Route path='/login' element={<LoginScreen />} />
         <Route path='/register' element={<RegisterScreen />} />
+        <Route path='/forgot-password' element={<ForgotPasswordScreen />} />
+        <Route path='/reset-password' element={<ResetPasswordScreen />} />
+
+
 
         {/* Rutas Protegidas por Middleware */}
         <Route element={<AuthMiddleware />}>
@@ -40,35 +46,3 @@ function App() {
 }
 
 export default App
-/* function App() {
-
-
-  return (
-    <AuthContextProvider>
-      <Routes>
-        <Route path='/' element={<LoginScreen />} />
-        <Route path='/register' element={<RegisterScreen />} />
-        <Route path='/login' element={<LoginScreen />} />
-        <Route element={<AuthMiddleware />}>
-          <Route path='/home' element={
-            <WorkspaceContextProvider>
-              <HomeScreen />
-            </WorkspaceContextProvider>
-          } />
-          <Route path='/create-workspace' element={
-            <WorkspaceContextProvider>
-              <CreateWorkspaceScreen />
-            </WorkspaceContextProvider>
-          } />
-          <Route path='/workspace/:workspace_id' element={
-            <WorkspaceContextProvider>
-              <WorkspaceDetailScreen />
-            </WorkspaceContextProvider>
-          } />
-        </Route>
-      </Routes>
-    </AuthContextProvider>
-  )
-}
-
-export default App */

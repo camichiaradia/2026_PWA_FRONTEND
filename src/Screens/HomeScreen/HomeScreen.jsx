@@ -100,7 +100,6 @@ const HomeScreen = () => {
 
                                     <div className="workspace-details">
                                         <span className="workspace-name">{workspace.workspace_titulo}</span>
-                                        <span className="workspace-members">Miembros activos</span>
                                     </div>
 
                                 </div>
@@ -135,12 +134,13 @@ const HomeScreen = () => {
 
                     )}
 
-                    {/* {workspace_list.data.workspaces && workspace_list.data.workspaces.length > 0 && workspace_list.data.workspaces.map(
-                        workspace => <div key={workspace.workspace_id}>{workspace.workspace_titulo}</div>)}
-
-                    {workspace_list.data.workspaces && workspace_list.data.workspaces.length === 0 && <span>No tienes workspaces</span>} */}
                 </div>
             </main>
+            <div className='text-sesion'>
+                <span>
+                    ¿Quieres cambiar de usuario? <Link to="/login">Inicia sesión</Link>
+                </span>
+            </div>
         </div>
     )
 }
