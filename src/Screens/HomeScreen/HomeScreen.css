@@ -97,7 +97,7 @@ body {
 }
 
 .list-label {
-    padding: 20px 24px;
+    padding: 20px 10px;
     margin: 0;
     font-size: 15px;
     border-bottom: 1px solid var(--border-color);
@@ -110,7 +110,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 20px;
+    padding: 10px 10px;
     border-bottom: 1px solid #eeeeee;
     transition: background 0.2s ease;
 }
@@ -131,8 +131,8 @@ body {
 }
 
 .workspace-icon {
-    width: 48px;
-    height: 48px;
+    width: 45px;
+    height: 40px;
     background-color: #e0e0e0;
     border-radius: 4px;
     display: flex;
@@ -176,13 +176,13 @@ body {
 
 .text-sesion {
     width: 100%;
-    display: flex;
     justify-content: center;
     margin-top: 20px;
 }
 
 .text-sesion span {
     display: flex;
+    justify-content: center;
     gap: 5px;
     align-items: center;
 }

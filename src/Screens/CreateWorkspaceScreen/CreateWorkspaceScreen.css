@@ -20,7 +20,6 @@
 }
 
 .create-workspace-box {
-    width: 100%;
     max-width: 600px;
     border: 1px solid var(--border-color);
     border-radius: 8px;
@@ -177,19 +176,14 @@
     }
 
     .create-workspace-container {
-        max-width: 1200px;
-    }
-
-    .create-workspace-header h1 {
-        font-size: 32px;
-    }
-
-    .create-workspace-header p {
-        font-size: 20px;
+        max-width: 2000px;
     }
 
     .form-group {
+        display: flex;
+        flex-direction: column;
         padding: 24px 32px;
+        width: 700px;
     }
 
     .form-label {

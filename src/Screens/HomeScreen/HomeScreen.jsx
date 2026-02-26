@@ -139,9 +139,11 @@ const HomeScreen = () => {
                 </div>
             </main>
             <div className='text-sesion'>
-                <span>
-                    ¿Quieres cambiar de usuario? <Link to="/login">Inicia sesión</Link>
-                </span>
+                <div>
+                    <span>
+                        ¿Quieres cambiar de usuario? <Link to="/login">Inicia sesión</Link>
+                    </span>
+                </div>
             </div>
         </div>
     )

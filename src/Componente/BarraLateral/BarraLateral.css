@@ -1,5 +1,5 @@
 /* ------------------------------------------- */
-/* MEDIA QUERY: 380px (RESPONSIVE Mobile) */
+/* MEDIA QUERY: 320px (RESPONSIVE Mobile) */
 /* ------------------------------------------- */
 * {
     margin: 0px;
@@ -7,7 +7,7 @@
     box-sizing: border-box;
 }
 
-@media (min-width: 380px) {
+@media (min-width: 320px) {
 
     .sidebar-slack {
         background-color: #3f0e40;
@@ -98,6 +98,7 @@
         margin: 4px 0 12px 0;
         line-height: 1.4;
         opacity: 0.8;
+        text-align: left;
     }
 }
 
@@ -110,7 +111,7 @@
 
     .sidebar-slack {
         background-color: #3f0e40;
-        width: 260px;
+        width: 100%;
         height: 100%;
         display: flex;
         flex-direction: column;
@@ -202,13 +203,13 @@
 }
 
 /* ------------------------------------------- */
-/* MEDIA QUERY: max-widht: 1200px (NetBooks) */
+/* MEDIA QUERY: min-widht: 1200px (NetBooks) */
 /* ------------------------------------------- */
-@media (max-width: 1200px) {
+@media (min-width: 1200px) {
 
     .sidebar-slack {
         background-color: #3f0e40;
-        width: 100%;
+        width: 280px;
         height: 100%;
         display: flex;
         flex-direction: column;
@@ -295,18 +296,18 @@
         margin: 4px 0 12px 0;
         line-height: 1.4;
         opacity: 0.8;
+        text-align: left;
     }
 
 }
 
 /* ------------------------------------------- */
-/* MEDIA QUERY: max. 1200px (Desktop) */
+/* MEDIA QUERY: min-widht: 2000px (NetBooks) */
 /* ------------------------------------------- */
-@media (max-width: 1200px) {
-
+@media (min-width: 2000px) {
     .sidebar-slack {
         background-color: #3f0e40;
-        width: 260px;
+        width: 280px;
         height: 100%;
         display: flex;
         flex-direction: column;

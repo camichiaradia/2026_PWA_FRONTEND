@@ -144,25 +144,21 @@ const ChannelMessageScreen = () => {
                 <BarraLateral
                     workspaceName={currentWorkspaceName}
                     channels={channels}
-                    channel_ id={selectedChannel?._id}
+                    channel_id={selectedChannel?._id}
                     onChannelSelect={handleChannelSelect}
                 />
 
                 <main className="chat-area">
-                    {/* 1. Encabezado fijo arriba */}
                     <header className="chat-header-slack">
                         <h1># {selectedChannel?.nombre}</h1>
                     </header>
 
-                    {/* 2. Lista de mensajes que ocupa el centro */}
                     <div className="message-list">
                         <MessagesList messages={messages} />
                     </div>
 
-                    {/* 3. Footer SIEMPRE al final de la columna */}
                     <footer className="chat-input-container">
                         <div className="chat-input-box">
-                            {/* Barra de herramientas superior */}
                             <div className="input-toolbar">
                                 <span className="toolbar-icon">B</span>
                                 <span className="toolbar-icon">I</span>
@@ -171,7 +167,6 @@ const ChannelMessageScreen = () => {
                                 <span className="toolbar-icon">≡</span>
                             </div>
 
-                            {/* Área de escritura y botón */}
                             <form onSubmit={handleSendMessage} className="input-form">
                                 <input
                                     type="text"

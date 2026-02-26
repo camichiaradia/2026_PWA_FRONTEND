@@ -39,7 +39,12 @@
     }
 
     .chat-area {
-        display: none;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        background-color: white;
+        position: relative;
     }
 
     .message-list {
@@ -48,7 +53,6 @@
         padding: 20px;
         display: flex;
         flex-direction: column;
-        height: 0px;
     }
 
     /* Contenedor externo */
@@ -93,7 +97,7 @@
         flex-direction: row !important;
         align-items: center;
         width: 100%;
-        padding: 4px 8px;
+        padding: 4px 20px;
     }
 
     .main-input {
@@ -201,7 +205,12 @@
     }
 
     .chat-area {
-        display: none;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        background-color: white;
+        position: relative;
     }
 
     .message-list {
@@ -210,7 +219,6 @@
         padding: 20px;
         display: flex;
         flex-direction: column;
-        height: 0px;
     }
 
     /* Contenedor externo */
@@ -255,7 +263,7 @@
         flex-direction: row !important;
         align-items: center;
         width: 100%;
-        padding: 4px 8px;
+        padding: 4px 20px;
     }
 
     .main-input {
@@ -378,7 +386,6 @@
         padding: 20px;
         display: flex;
         flex-direction: column;
-        height: 0px;
     }
 
     /* Contenedor externo */
@@ -545,7 +552,6 @@
         padding: 20px;
         display: flex;
         flex-direction: column;
-        height: 0px;
     }
 
     /* Contenedor externo */
@@ -590,7 +596,7 @@
         flex-direction: row !important;
         align-items: center;
         width: 100%;
-        padding: 4px 8px;
+        padding: 4px 20px;
     }
 
     .main-input {

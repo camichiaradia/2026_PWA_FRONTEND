@@ -27,7 +27,7 @@ const LoginScreen = () => {
             </header>
             <h1>Primero, introduce tu correo electrónico</h1>
             <p className='p_text'>Te sugerimos que uses la <strong>dirección de correo electrónico que usas en el trabajo.</strong></p>
-            <form onSubmit={onSubmitForm}>
+            <form className= "form-container" onSubmit={onSubmitForm}>
                 <div>
                     <input
                         type="email"

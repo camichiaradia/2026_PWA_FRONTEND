@@ -1,5 +1,5 @@
 /* ------------------------------------------- */
-/* MEDIA QUERY: 380px (RESPONSIVE Mobile) */
+/* MEDIA QUERY: 320px (RESPONSIVE Mobile) */
 /* ------------------------------------------- */
 * {
     margin: 0px;
@@ -188,7 +188,6 @@
         display: flex;
         flex-direction: column;
         gap: 15px;
-        height: 0px;
     }
 
     .message-list-container {
@@ -485,7 +484,7 @@
 
     .sidebar-slack {
         background-color: #3f0e40;
-        width: 100px;
+        width: 100%;
         height: 100%;
         display: flex;
         flex-direction: column;
@@ -559,7 +558,6 @@
         display: flex;
         flex-direction: column;
         gap: 15px;
-        height: 0px;
     }
 
     .message-list-container {
@@ -938,7 +936,6 @@
         display: flex;
         flex-direction: column;
         gap: 15px;
-        height: 0px;
     }
 
     .message-list-container {
@@ -1319,7 +1316,6 @@
         display: flex;
         flex-direction: column;
         gap: 15px;
-        height: 0px;
     }
 
     .message-list-container {

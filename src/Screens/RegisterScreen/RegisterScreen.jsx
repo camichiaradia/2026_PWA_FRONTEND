@@ -72,7 +72,7 @@ const RegisterScreen = () => {
                 <br />
                 <button type="submit" disabled={loading}>Registrarse</button>
             </form>
-            <span>
+            <span className='text-cuenta'>
                 Ya tienes una cuenta? <Link to="/login">iniciar sesion</Link>
             </span>
         </div>
