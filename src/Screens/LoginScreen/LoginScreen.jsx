@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import useForm from '../../hooks/useForm'
 import useRequest from '../../hooks/useRequest'
@@ -8,6 +8,8 @@ import "../LoginScreen/LoginScreen.css"
 
 
 const LoginScreen = () => {
+    const [isSeenMode, setIsSeenMode] = useState(false);
+
     const {
         form_state,
         onChangeFieldValue,
@@ -16,6 +18,10 @@ const LoginScreen = () => {
         error,
         response
     } = useLogin()
+
+    const toggleSeenMode = () => {
+        setIsSeenMode(!isSeenMode);
+    }
 
     return (
         <div className="hero_login">
@@ -27,7 +33,7 @@ const LoginScreen = () => {
             </header>
             <h1>Primero, introduce tu correo electrónico</h1>
             <p className='p_text'>Te sugerimos que uses la <strong>dirección de correo electrónico que usas en el trabajo.</strong></p>
-            <form className= "form-container" onSubmit={onSubmitForm}>
+            <form className="form-container" onSubmit={onSubmitForm}>
                 <div>
                     <input
                         type="email"
@@ -37,14 +43,24 @@ const LoginScreen = () => {
                         onChange={onChangeFieldValue}
                         value={form_state.email} />
                 </div>
-                <div>
+                <div className="password-wrapper">
                     <input
-                        type="password"
+                        type={isSeenMode ? "text" : "password"}
                         id="password"
                         name="password"
+                        className="password-input"
                         onChange={onChangeFieldValue}
                         placeholder="Contraseña"
-                        value={form_state.password} />
+                        value={form_state.password}
+                    />
+                    <button
+                        type="button"
+                        className="toggle-password-button"
+                        onClick={toggleSeenMode}
+                    >
+                        <i className={`bi ${isSeenMode ? 'bi-eye-slash' : 'bi-eye'}`}></i>
+
+                    </button>
                 </div>
 
                 <div className="forgot-password-container">

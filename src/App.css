@@ -1,2 +1,151 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Vibur&display=swap');
 @import "bootstrap-icons/font/bootstrap-icons.css";
+
+/* --- 1. BASE: Estilos que no cambian --- */
+.chat-header-slack {
+    display: flex;
+    flex-direction: row;
+    /* Elementos uno al lado del otro */
+    align-items: center;
+    border-bottom: 1px solid #e8e8e8;
+    background-color: #ffffff;
+    z-index: 10;
+    gap: 12px;
+}
+
+.chat-header-slack h1 {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #1d1c1d;
+}
+
+.btn-back-to-channels {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font-size: 1.5rem;
+    color: #1d1c1d;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.2s;
+    min-width: 32px;
+    height: 32px;
+}
+
+.btn-back-to-channels i {
+    font-size: 1.5rem;
+    color: #1d1c1d;
+    line-height: 1;
+}
+
+.btn-back-to-channels:active {
+    opacity: 0.5;
+}
+
+.header-left-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    width: auto;
+}
+
+/* --- 2. MÓVIL Y TABLET PEQUEÑA (< 992px) --- */
+@media (max-width: 1200px) {
+
+    .header-left-content {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
+        width: auto;
+    }
+
+    .chat-header-slack {
+        display: flex;
+        align-items: center;
+        height: 60px;
+        padding: 0 15px;
+    }
+
+    .chat-header-slack h1 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin: 0;
+        white-space: nowrap;
+    }
+
+    /* Vistas de visibilidad (Workspace y Channel) */
+    .workspace-view .contenedor-sidebar,
+    .workspace-view .sidebar-slack {
+        display: flex !important;
+    }
+
+    .workspace-view .chat-area {
+        display: none !important;
+    }
+
+    .channel-view .contenedor-sidebar,
+    .channel-view .sidebar-slack {
+        display: none !important;
+    }
+
+    .channel-view .chat-area {
+        display: flex !important;
+        width: 100vw;
+    }
+
+    .btn-back-to-channels {
+        display: flex !important;
+    }
+
+    .sidebar-channel-item:active {
+        background-color: #1164A3;
+        color: white;
+    }
+}
+
+/* --- 3. DESKTOP / PANTALLA GRANDE (> 992px) --- */
+@media (min-width: 1200px) {
+
+    .contenedor-sidebar,
+    .sidebar-slack {
+        display: flex !important;
+    }
+
+    .chat-area {
+        display: flex !important;
+        flex: 1;
+    }
+
+    .chat-header-slack {
+        height: 64px;
+        padding: 0 20px;
+        justify-content: flex-start;
+        gap: 0;
+        /* Quitamos el gap porque el botón desaparece */
+    }
+
+    .chat-header-slack h1 {
+        font-size: 1.5rem;
+        font-weight: 800;
+    }
+
+    /* Escondemos el botón de volver en PC */
+    .btn-back-to-channels {
+        display: flex !important;
+    }
+}
+
+@media (min-width: 2000px) {
+    .btn-back-to-channels {
+        display: none !important;
+    }
+}

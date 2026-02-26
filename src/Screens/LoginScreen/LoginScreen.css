@@ -108,8 +108,52 @@
         width: 100%;
     }
 
-}
+    /* Ver contraseña */
+    .password-wrapper {
+        position: relative;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+    }
 
+    .password-input {
+        width: 100%;
+        padding: 12px;
+        padding-right: 90px !important;
+        border: 1px solid #868686;
+        border-radius: 10px;
+        font-size: 18px;
+    }
+
+    .toggle-password-button {
+        position: absolute;
+        right: 10px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: #611f69;
+        font-size: 18px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        z-index: 2;
+        padding-right: 10px;
+        padding-bottom: 10px;
+    }
+
+    .toggle-password-button:hover {
+        color: #0b4d82;
+        text-decoration: underline;
+    }
+
+    @media (max-width: 350px) {
+        .button-text-label {
+            display: none;
+        }
+    }
+}
 
 /* ----------------------------------------------------------- */
 /* MEDIA QUERY: 768px (Tabletas - VISTA DOBLE COLUMNA) */

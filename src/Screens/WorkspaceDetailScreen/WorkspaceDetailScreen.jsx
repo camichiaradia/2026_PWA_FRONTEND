@@ -69,10 +69,10 @@ const WorkspaceDetailScreen = () => {
     const currentWorkspaceName = currentWorkspace?.workspace_titulo || "Cargando...";
 
     return (
-        <div className="main-layout-container-ws-detail">
+        <div className="main-layout-container workspace-view">
             <BarraBuscador workspaceName={currentWorkspaceName} />
 
-            <div className="content-wrapper-ws-detail">
+            <div className="content-wrapper">
                 <MenuLateral
                     workspaceName={currentWorkspaceName}
                     channels={channels}
@@ -100,12 +100,12 @@ const WorkspaceDetailScreen = () => {
                             <div className="header_logo">
                                 <img className='logo_slack' src='/Slack_logo.png' alt='logo_Slack' />
                             </div>
-                            <div className="empty-state-text">
+                            <div className="empty-state-text-ws-detail">
                                 Selecciona un canal para ver los mensajes
                             </div>
                         </div>
                     ) : (
-                        <div className="messages-container">
+                        <div className="messages-container-ws-detail">
 
                         </div>
                     )}

@@ -11,6 +11,7 @@ import WorkspaceDetailScreen from './Screens/WorkspaceDetailScreen/WorkspaceDeta
 import ChannelMessageScreen from './Screens/ChannelMessageScreen/ChannelMessageScreen'
 import ForgotPasswordScreen from './Screens/ForgotPasswordScreen/ForgotPasswordScreen'
 import ResetPasswordScreen from './Screens/ResetPasswordScreen/ResetPasswordScreen'
+import './App.css'
 
 function App() {
   return (

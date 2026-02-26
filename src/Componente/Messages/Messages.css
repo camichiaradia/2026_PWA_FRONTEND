@@ -88,6 +88,7 @@
     font-size: 15px;
     margin: 5px 0;
     word-wrap: break-word;
+    text-align: left;
 }
 
 .p_time {

@@ -1,7 +1,6 @@
 /* ------------------------------------------- */
 /* MEDIA QUERY: 380px (RESPONSIVE Mobile) */
 /* ------------------------------------------- */
-
 * {
     margin: 0px;
     padding: 0px;
@@ -77,6 +76,7 @@
 /* MEDIA QUERY: 768px (NetBooks)*/
 /* ----------------------------------------------------------- */
 @media (min-width: 768px) {
+
     .hero_register {
         max-width: 1000px;
         padding: 40px;
@@ -92,14 +92,13 @@
         margin-bottom: 20px;
         max-width: 400px;
     }
-
-
 }
 
 /* ------------------------------------------- */
 /* MEDIA QUERY: max. 1200px (Desktop) */
 /* ------------------------------------------- */
 @media (max-width: 1200px) {
+
     .hero_register {
         max-width: 1000px;
         padding: 40px;
@@ -115,5 +114,4 @@
         margin-bottom: 20px;
         max-width: 400px;
     }
-
 }

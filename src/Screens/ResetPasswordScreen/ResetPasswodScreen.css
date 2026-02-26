@@ -91,6 +91,7 @@ input[type="password"]:focus {
 /* MEDIA QUERY: 768px (Tabletas - VISTA DOBLE COLUMNA) */
 /* ----------------------------------------------------------- */
 @media (min-width: 768px) {
+
     .hero_login {
         max-width: 1000px;
         padding: 40px;
@@ -105,13 +106,13 @@ input[type="password"]:focus {
         color: #454545;
         margin-bottom: 20px;
     }
-
 }
 
 /* ------------------------------------------- */
 /* MEDIA QUERY: 1200px (NetBooks) */
 /* ------------------------------------------- */
 @media (min-width: 1200px) {
+
     .hero_login {
         max-width: 1000px;
         padding: 40px;
@@ -126,13 +127,13 @@ input[type="password"]:focus {
         color: #454545;
         margin-bottom: 20px;
     }
-
 }
 
 /* ------------------------------------------- */
 /* MEDIA QUERY: max. 1200px (Desktop) */
 /* ------------------------------------------- */
 @media (max-width: 1200px) {
+
     .hero_login {
         max-width: 1000px;
         padding: 40px;
@@ -149,5 +150,4 @@ input[type="password"]:focus {
         width: auto !important;
         max-width: none !important;
     }
-
 }

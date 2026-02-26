@@ -185,6 +185,7 @@ body {
     justify-content: center;
     gap: 5px;
     align-items: center;
+    white-space: nowrap;
 }
 
 .create-workspace-container {
@@ -284,8 +285,6 @@ body {
     .workspace-card-container {
         max-width: 800px;
     }
-
-
 }
 
 /* ------------------------------------------- */
@@ -301,7 +300,6 @@ body {
         color: #454545;
         margin-bottom: 20px;
     }
-
 }
 
 /* ------------------------------------------- */
@@ -324,5 +322,4 @@ body {
         width: auto !important;
         max-width: none !important;
     }
-
 }

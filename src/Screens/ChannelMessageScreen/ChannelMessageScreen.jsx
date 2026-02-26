@@ -127,7 +127,7 @@ const ChannelMessageScreen = () => {
     };
 
     return (
-        <div className="main-layout-container">
+        <div className="main-layout-container channel-view">
             <BarraBuscador workspaceName={currentWorkspaceName} />
 
             <div className="content-wrapper">
@@ -148,9 +148,19 @@ const ChannelMessageScreen = () => {
                     onChannelSelect={handleChannelSelect}
                 />
 
-                <main className="chat-area">
+                <main className="chat-area-message">
                     <header className="chat-header-slack">
-                        <h1># {selectedChannel?.nombre}</h1>
+                        <div className="header-left-content">
+                            <button
+                                className="btn-back-to-channels"
+                                onClick={() => navigate(`/workspace/${workspace_id}`)}
+                                title="Volver a canales"
+                            >
+                                <i className="bi bi-arrow-left"></i>
+                            </button>
+
+                            <h1># {selectedChannel?.nombre}</h1>
+                        </div>
                     </header>
 
                     <div className="message-list">

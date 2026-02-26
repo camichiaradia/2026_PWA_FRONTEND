@@ -37,8 +37,8 @@ const BarraLateral = ({ workspaceName, channels, channel_id, onChannelSelect }) 
                     {channels && channels.map(channel => (
                         <div
                             key={channel._id}
-                            className={`menu-item-slack ${channel._id === channel_id ? 'active' : ''}`}
                             onClick={() => onChannelSelect(channel)}
+                            className={`sidebar-channel-item ${channel._id === channel_id ? 'active' : ''}`}
                         >
                             # {channel.nombre}
                         </div>
