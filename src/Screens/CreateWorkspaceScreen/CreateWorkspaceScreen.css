@@ -1,3 +1,7 @@
+/* ------------------------------------------- */
+/* MEDIA QUERY: 380px (RESPONSIVE Mobile) */
+/* ------------------------------------------- */
+
 * {
     margin: 0px;
     padding: 0px;
@@ -10,10 +14,9 @@
     flex-direction: column;
     align-items: center;
     max-width: 800px;
-    margin: 10px auto;
-    padding: 20px;
     color: #1d1c1d;
     text-align: center;
+    padding: 20px;
 }
 
 .create-workspace-box {
@@ -29,9 +32,16 @@
     text-align: center;
 }
 
-.header_logo .logo_slack {
-    height: 100%;
+.header_logo {
+    height: 90px;
     margin-bottom: 0px;
+}
+
+.logo_slack {
+    width: 120px;
+    height: auto;
+    display: block;
+    margin-bottom: 20px;
 }
 
 .create-workspace-header h1 {
@@ -142,8 +152,6 @@
 }
 
 .btn-back {
-    color: #1d1c1d;
-    text-decoration: none;
     font-weight: 500;
     font-size: 15px;
     text-align: center;
@@ -152,5 +160,74 @@
 
 .btn-back:hover {
     text-decoration: underline;
-    color: #1264a3;
+    color: #611f69;
+}
+
+/* ---------------------------------------------------------- */
+/* MEDIA QUERY: 768px (NetBooks)*/
+/* ---------------------------------------------------------- */
+@media (min-width: 768px) {
+    .hero_login {
+        max-width: 1000px;
+        padding: 40px;
+    }
+
+    .workspace-card-container {
+        max-width: 800px;
+    }
+
+    .create-workspace-container {
+        max-width: 1200px;
+    }
+
+    .create-workspace-header h1 {
+        font-size: 32px;
+    }
+
+    .create-workspace-header p {
+        font-size: 20px;
+    }
+
+    .form-group {
+        padding: 24px 32px;
+    }
+
+    .form-label {
+        font-size: 16px;
+    }
+
+    .form-input,
+    .form-textarea {
+        font-size: 18px;
+    }
+
+    .btn-primary,
+    .btn-back {
+        font-size: 18px;
+    }
+}
+
+/* ------------------------------------------- */
+/* MEDIA QUERY: max. 1200px (Desktop) */
+/* ------------------------------------------- */
+@media (max-width: 1200px) {
+    .hero_login {
+        max-width: 1000px;
+        padding: 40px;
+    }
+
+    .workspace-card-container {
+        max-width: 800px;
+    }
+
+    .hero_login p {
+        font-size: 18px;
+        color: #454545;
+        margin-bottom: 20px;
+    }
+
+    .create-workspace-container {
+        max-width: 1220px;
+    }
+
 }

@@ -26,7 +26,7 @@ const LoginScreen = () => {
                 </div>
             </header>
             <h1>Primero, introduce tu correo electrónico</h1>
-            <p>Te sugerimos que uses la <strong>dirección de correo electrónico que usas en el trabajo.</strong></p>
+            <p className='p_text'>Te sugerimos que uses la <strong>dirección de correo electrónico que usas en el trabajo.</strong></p>
             <form onSubmit={onSubmitForm}>
                 <div>
                     <input
@@ -48,11 +48,15 @@ const LoginScreen = () => {
                 </div>
 
                 <div className="forgot-password-container">
+                    <span className='forgot-password-text'>
+                        ¿Olvidaste tu contraseña?
+                    </span>
                     <span>
-                        ¿Olvidaste tu contraseña? <Link to="/forgot-password" title="Recuperar contraseña">
+                        <Link to="/forgot-password" title="Recuperar contraseña">
                             Recuperar contraseña
                         </Link>
                     </span>
+
                 </div>
                 {
                     error && <span style={{ color: '#e01e5a', marginBottom: '10px' }}>{error.message}</span>

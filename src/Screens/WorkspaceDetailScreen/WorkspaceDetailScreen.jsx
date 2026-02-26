@@ -69,10 +69,10 @@ const WorkspaceDetailScreen = () => {
     const currentWorkspaceName = currentWorkspace?.workspace_titulo || "Cargando...";
 
     return (
-        <div className="main-layout-container">
+        <div className="main-layout-container-ws-detail">
             <BarraBuscador workspaceName={currentWorkspaceName} />
 
-            <div className="content-wrapper">
+            <div className="content-wrapper-ws-detail">
                 <MenuLateral
                     workspaceName={currentWorkspaceName}
                     channels={channels}
@@ -90,13 +90,13 @@ const WorkspaceDetailScreen = () => {
                     onChannelSelect={handleChannelSelect}
                 />
 
-                <main className="chat-area">
-                    <header className="chat-header-slack">
+                <main className="chat-area-ws-detail">
+                    <header className="chat-header-slack-ws-detail">
                         <h1># {selectedChannel?.nombre || 'Selecciona un canal'}</h1>
                     </header>
 
                     {!selectedChannel ? (
-                        <div className="empty-state-wrapper">
+                        <div className="empty-state-wrapper-ws-detail">
                             <div className="header_logo">
                                 <img className='logo_slack' src='/Slack_logo.png' alt='logo_Slack' />
                             </div>

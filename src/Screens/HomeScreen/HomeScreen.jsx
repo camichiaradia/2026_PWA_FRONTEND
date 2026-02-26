@@ -82,7 +82,9 @@ const HomeScreen = () => {
                 </div>
                 <h1>Bienvenido nuevamente</h1>
                 <p>Elige un espacio de trabajo para volver a <strong>comunicarte con tu equipo.</strong></p>
-                <span>O si quieres puedes: <Link to="/create-workspace">Crear un nuevo espacio de trabajo.</Link></span>
+                <span className='create-workspace-text'>
+                    O si quieres puedes: <Link to="/create-workspace">Crear un nuevo espacio de trabajo.</Link>
+                </span>
             </header>
 
             <main className="workspace-card-container">

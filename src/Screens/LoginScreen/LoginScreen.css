@@ -1,11 +1,13 @@
+/* ------------------------------------------- */
+/* MEDIA QUERY: 380px (RESPONSIVE Mobile) */
+/* ------------------------------------------- */
+
 * {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
 }
 
-/* ---------- INICIA ACÁ ---------- */
-/* RESPONSIVE Mobile */
 .hero_login {
     font-family: 'Slack-Larsseit', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     display: flex;
@@ -18,8 +20,15 @@
     text-align: center;
 }
 
-.header_logo .logo_slack {
+.header_logo {
     height: 90px;
+    margin-bottom: 0px;
+}
+
+.logo_slack {
+    width: 120px;
+    height: auto;
+    display: block;
     margin-bottom: 20px;
 }
 
@@ -86,4 +95,78 @@ button[type="submit"]:hover {
 button[type="submit"]:disabled {
     background-color: #dddddd;
     cursor: not-allowed;
+}
+
+.forgot-password-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.forgot-password-text {
+    width: 100%;
+}
+
+
+/* ----------------------------------------------------------- */
+/* MEDIA QUERY: 768px (Tabletas - VISTA DOBLE COLUMNA) */
+/* ----------------------------------------------------------- */
+@media (min-width: 768px) {
+    .hero_login {
+        max-width: 1000px;
+        padding: 40px;
+    }
+
+    .workspace-card-container {
+        max-width: 800px;
+    }
+
+    .hero_login p {
+        font-size: 18px;
+        color: #454545;
+        margin-bottom: 20px;
+    }
+
+
+    /* ------------------------------------------- */
+    /* MEDIA QUERY: 1200px (NetBooks) */
+    /* ------------------------------------------- */
+    @media (min-width: 1200px) {
+        .hero_login {
+            max-width: 1000px;
+            padding: 40px;
+        }
+
+        .workspace-card-container {
+            max-width: 800px;
+        }
+
+        .hero_login p {
+            font-size: 18px;
+            color: #454545;
+            margin-bottom: 20px;
+        }
+
+    }
+}
+
+/* ------------------------------------------- */
+/* MEDIA QUERY: max. 1200px (Desktop) */
+/* ------------------------------------------- */
+@media (max-width: 1200px) {
+    .hero_login {
+        max-width: 1000px;
+        padding: 40px;
+    }
+
+    .workspace-card-container {
+        max-width: 800px;
+    }
+
+    .hero_login p {
+        font-size: 18px;
+        color: #454545;
+        margin-bottom: 20px;
+        width: auto !important;
+        max-width: none !important;
+    }
 }

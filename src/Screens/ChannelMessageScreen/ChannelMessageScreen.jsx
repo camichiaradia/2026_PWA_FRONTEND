@@ -144,7 +144,7 @@ const ChannelMessageScreen = () => {
                 <BarraLateral
                     workspaceName={currentWorkspaceName}
                     channels={channels}
-                    channel_id={selectedChannel?._id}
+                    channel_ id={selectedChannel?._id}
                     onChannelSelect={handleChannelSelect}
                 />
 
@@ -162,6 +162,7 @@ const ChannelMessageScreen = () => {
                     {/* 3. Footer SIEMPRE al final de la columna */}
                     <footer className="chat-input-container">
                         <div className="chat-input-box">
+                            {/* Barra de herramientas superior */}
                             <div className="input-toolbar">
                                 <span className="toolbar-icon">B</span>
                                 <span className="toolbar-icon">I</span>
@@ -170,6 +171,7 @@ const ChannelMessageScreen = () => {
                                 <span className="toolbar-icon">≡</span>
                             </div>
 
+                            {/* Área de escritura y botón */}
                             <form onSubmit={handleSendMessage} className="input-form">
                                 <input
                                     type="text"
@@ -179,7 +181,6 @@ const ChannelMessageScreen = () => {
                                     onChange={(e) => setMessageInput(e.target.value)}
                                     disabled={!selectedChannel}
                                 />
-
                                 <div className="input-actions">
                                     <button
                                         type="submit"
